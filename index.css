@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 300px;
+    min-height: 260px;
+    background-color: 255, 180, 0;
+    background-color: #FFB400;
+    font-family: 'Patrick Hand', cursive;
+    letter-spacing: 2px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+h3 {
+    letter-spacing: 6px;
+    color: #113537;
+}
+
+h3 small {
+    letter-spacing: 2px;
+}
+
+div.button {
+    color: white;
+    padding: 10px;
+    margin: auto;
+    background-color: #37505C;
+    border-radius: 7px;
+}
+
+div#display {
+    width: 75%;
+}
+
+div#time {
+    letter-spacing: 7px;
+    font-size: 35px;
+    color: #37505C;
+    background-color: white;
+    border-radius: 5px;
+    width: 85%;
+    padding: 3px;
+    margin: 10px auto;
+    border-radius: 7px;
+    width: 70%;
+}
+
+div.choice-btn {
+    display: inline-block;
+    width: 30%;
+    margin: auto 4px;
+}
+
+div#left-btn {
+}
+
+div#right-btn {
+}
