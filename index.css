@@ -11,6 +11,12 @@ body {
     box-sizing: border-box;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .container {
     position: relative;
 }
@@ -42,11 +48,13 @@ div.button {
     border-radius: 7px;
 }
 
-div#display {
+#display {
     width: 75%;
 }
 
-div#time {
+#time {
+    border: none;
+    text-align: center;
     letter-spacing: 7px;
     font-size: 35px;
     color: #37505C;
