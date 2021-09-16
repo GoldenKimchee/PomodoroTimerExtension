@@ -22,6 +22,14 @@ let breakMessages = [
     "🌯 Snack break?",
     "🧠 Charging...",
     "🎧 Listen to some music.",
+    "✍️ Have some time for yourself.",
+    "✌️ A break well-deserved!",
+    "👏 Good job!",
+    "💅 Self care is important, too.",
+    "🚶 Get that circulation going!",
+    "👓 Let your eyes rest.",
+    "🥾 Taking a walk?",
+    "👍 Great work.",
 ];
 
 const workBtnEl = document.querySelector("#work-btn");
@@ -37,7 +45,6 @@ const shortBreak = 5;
 const longBreak = 15;
 let currentMinutes, currentSeconds, totalMinutes, totalHours;
 currentMinutes = currentSeconds = totalMinutes = totalHours = 0;
-console.log(totalMinutes);
 let currentTimer, workTimer;
 let start = true;
 
@@ -50,6 +57,34 @@ workBtnEl.addEventListener("click", function() {
     startTime("25:00", work);
 
 });
+
+
+shortBreakBtnEl.addEventListener("click", function() {
+
+    clearInterval(workTimer);
+    displayEl.textContent = "Taking a short break...";
+    showMessage(breakMessages);
+    start = true;
+    startTime("05:00", shortBreak);
+
+});
+
+
+longBreakBtnEl.addEventListener("click", function() {
+
+    clearInterval(workTimer);
+    displayEl.textContent = "Taking a long break...";
+    showMessage(breakMessages);
+    start = true;
+    startTime("15:00", longBreak);
+
+});
+
+
+function showMessage(messageArray) {
+    let randomIndex = Math.floor( Math.random() * ( messageArray.length - 1 ) );
+    messageEl.textContent = messageArray[ randomIndex ];
+}
 
 
 function updateStudyTime() {
@@ -73,32 +108,6 @@ function updateStudyTime() {
 
     totalTimeEl.textContent = totalHours + hourStr + " " + totalMinutes + minuteStr;
 
-}
-
-
-shortBreakBtnEl.addEventListener("click", function() {
-
-    clearInterval(workTimer);
-    displayEl.textContent = "Taking a short break...";
-    showMessage(breakMessages);
-    startTime("05:00", shortBreak);
-
-});
-
-
-longBreakBtnEl.addEventListener("click", function() {
-
-    clearInterval(workTimer);
-    displayEl.textContent = "Taking a long break...";
-    showMessage(breakMessages);
-    startTime("15:00", longBreak);
-
-});
-
-
-function showMessage(messageArray) {
-    let randomIndex = Math.floor( Math.random() * ( messageArray.length - 1 ) );
-    messageEl.textContent = messageArray[ randomIndex ];
 }
 
 
