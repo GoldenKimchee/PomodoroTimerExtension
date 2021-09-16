@@ -11,6 +11,12 @@ body {
     box-sizing: border-box;
 }
 
+.website {
+    width: 500px;
+    margin: auto;
+    font-size: 30px;
+}
+
 .container {
     position: relative;
 }
@@ -23,7 +29,7 @@ body {
 
 button {
     font-family: 'Patrick Hand', cursive;
-    font-size: 17px;
+    font-size: 25px;
 }
 
 .footer {
@@ -43,6 +49,12 @@ img {
     height: auto;
 }
 
+.website img {
+    margin-top: 3px;
+    width: 400px;
+    height: auto;
+}
+
 h3 {
     position: absolute;
     margin: 0;
@@ -51,6 +63,12 @@ h3 {
     font-size: 23px;
     letter-spacing: 6px;
     color: #113537;
+}
+
+.website h3 {
+    font-size: 30px;
+    top: 24px;
+    left: 125px;
 }
 
 h3 small {
