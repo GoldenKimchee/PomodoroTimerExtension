@@ -14,6 +14,9 @@ let workMessages = [
     "❤️ Thank you for using this timer.",
     "🔥 Keep going.",
     "💯 Aim high. I believe in you.",
+    "🙌 Keep the good work going!",
+    "🎓 Turn that thinking cap on!",
+    "👨‍💻 Keep on going.",
     "💻 Focus now, play later.",
 ];
 
@@ -29,6 +32,9 @@ let breakMessages = [
     "🚶 Get that circulation going!",
     "👓 Let your eyes rest.",
     "🥾 Taking a walk?",
+    "🥰 Break time.",
+    "🤩 Break time = my favorite time.",
+    "👾 Gonna play a quick game?",
     "👍 Great work.",
 ];
 
@@ -43,18 +49,20 @@ const totalTimeEl = document.querySelector("#total-time");
 const work = 25; 
 const shortBreak = 5;
 const longBreak = 15;
+const sfx = new Audio("sfx.mp3");
+
 let currentMinutes, currentSeconds, totalMinutes, totalHours;
 currentMinutes = currentSeconds = totalMinutes = totalHours = 0;
 let currentTimer, workTimer;
-let start = true;
+let started = false;
 
 
 workBtnEl.addEventListener("click", function() {
 
     displayEl.textContent = "Studying...";
-    start = true;
     showMessage(workMessages);
     startTime("25:00", work);
+    countDown(currentMinutes, 0, true, false);
 
 });
 
@@ -64,8 +72,8 @@ shortBreakBtnEl.addEventListener("click", function() {
     clearInterval(workTimer);
     displayEl.textContent = "Taking a short break...";
     showMessage(breakMessages);
-    start = true;
     startTime("05:00", shortBreak);
+    countDown(currentMinutes, 0, false, false);
 
 });
 
@@ -75,8 +83,8 @@ longBreakBtnEl.addEventListener("click", function() {
     clearInterval(workTimer);
     displayEl.textContent = "Taking a long break...";
     showMessage(breakMessages);
-    start = true;
     startTime("15:00", longBreak);
+    countDown(currentMinutes, 0, false, false);
 
 });
 
@@ -84,6 +92,47 @@ longBreakBtnEl.addEventListener("click", function() {
 function showMessage(messageArray) {
     let randomIndex = Math.floor( Math.random() * ( messageArray.length - 1 ) );
     messageEl.textContent = messageArray[ randomIndex ];
+}
+
+
+function startTime(startingTime, time) {
+
+    clearTimeout(currentTimer);
+
+    timeEl.textContent = startingTime;
+    currentMinutes = time;
+
+}
+
+
+function countDown(minutes, seconds, studying, started) {
+
+    let tempSeconds = seconds;
+    let tempMinutes = minutes;
+
+    if (seconds < 10) {
+        tempSeconds = "0" + seconds;
+    }
+    if (minutes < 10) {
+        tempMinutes = "0" + minutes
+    }
+
+    timeEl.textContent = tempMinutes + ":" + tempSeconds;
+
+    if (seconds == 0) {
+        if (minutes == 0) {
+            sfx.play();
+            return;
+        }
+        minutes -= 1;
+        seconds = 59;
+        if (studying && started) { 
+            updateStudyTime();
+        } else started = true;
+    } else seconds--;
+
+    currentTimer = setTimeout(countDown, 1000, minutes, seconds, studying, started);
+
 }
 
 
@@ -109,45 +158,3 @@ function updateStudyTime() {
     totalTimeEl.textContent = totalHours + hourStr + " " + totalMinutes + minuteStr;
 
 }
-
-
-function startTime(startingTime, time) {
-    clearTimeout(currentTimer);
-
-    timeEl.textContent = startingTime;
-    currentMinutes = time;
-
-    countDown(currentMinutes, 0);
-}
-
-
-function countDown(minutes, seconds) {
-
-    let tempSeconds = seconds;
-    let tempMinutes = minutes;
-
-    if (seconds < 10) {
-        tempSeconds = "0" + seconds;
-    }
-    if (minutes < 10) {
-        tempMinutes = "0" + minutes
-    }
-
-    timeEl.textContent = tempMinutes + ":" + tempSeconds;
-
-    if (seconds == 0) {
-        if (minutes == 0) {
-            return;
-        }
-        minutes -= 1;
-        seconds = 59;
-        if (start) { // make a more elegant solution later...
-            start = false;
-        } else updateStudyTime()
-    } else seconds--;
-
-    currentTimer = setTimeout(countDown, 1000, minutes, seconds);
-
-}
-
-
