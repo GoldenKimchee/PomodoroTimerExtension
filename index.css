@@ -2,35 +2,60 @@ body {
     margin: 0;
     padding: 0;
     min-width: 300px;
-    min-height: 260px;
+    min-height: 350px;
     background-color: 255, 180, 0;
     background-color: #FFB400;
     font-family: 'Patrick Hand', cursive;
     letter-spacing: 2px;
+    font-size: 16px;
     text-align: center;
     box-sizing: border-box;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
 .container {
     position: relative;
+    width: 25%;
+    margin: auto;
+}
+
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+#display {
+    width: 75%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+button {
+    font-family: 'Patrick Hand', cursive;
+    font-size: inherit;
+}
+
+.footer {
+    width: 75%;
+    color: #113537;
+    padding: 10px;
+    margin: auto;
+    margin-top: 10px;
+    justify-content: center;
+    background-color: #F75850;
+    border-radius: 7px;
 }
 
 img {
+    margin-top: 3px;
     width: 300px;
     height: auto;
 }
-
 h3 {
     position: absolute;
     margin: 0;
     top: 18px;
-    left: 47px;
+    left: 110px;
     font-size: 23px;
     letter-spacing: 6px;
     color: #113537;
@@ -40,21 +65,16 @@ h3 small {
     letter-spacing: 2px;
 }
 
-div.button {
+.button {
+    border: none;
     color: white;
     padding: 10px;
-    margin: auto;
+    justify-content: center;
     background-color: #37505C;
     border-radius: 7px;
 }
 
-#display {
-    width: 75%;
-}
-
 #time {
-    border: none;
-    text-align: center;
     letter-spacing: 7px;
     font-size: 35px;
     color: #37505C;
@@ -62,19 +82,39 @@ div.button {
     border-radius: 5px;
     width: 85%;
     padding: 3px;
-    margin: 10px auto;
+    margin: 0 auto 10px auto;
     border-radius: 7px;
     width: 70%;
 }
 
-div.choice-btn {
+footer {
+    background-color: #113537;
+    color: white;
+    font-size: 10px;
+}
+
+footer a {
+    color: white;
+}
+
+.choice-grid {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-gap: 10px;
+}
+
+.choice-btn {
     display: inline-block;
-    width: 30%;
-    margin: auto 4px;
+    grid-template-columns: auto / span 1;
 }
 
-div#left-btn {
-}
-
-div#right-btn {
+#work-btn {
+    justify-content: stretch;
+    align-items: stretch;
+    justify-items: stretch;
+    align-content: stretch;
+    align-self: stretch;
+    justify-self: stretch;
 }

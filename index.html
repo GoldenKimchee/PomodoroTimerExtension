@@ -11,14 +11,31 @@
     </style>
 </head>
 <body>
+    
     <div class="container">
-        <img src="tomato.png" alt="Tomato title image"></img>
+
+        <img src="tomato.png" alt="Tomato title image">
         <h3>POMODORO <small>Timer</small></h3>
+
+        <div id="display" class="button">What to do?</div>
+
+        <div id="time">00:00</div>
+        
+        <div class="choice-grid">
+            <button id="work-btn" class="button choice-btn">Study</button>
+            <button id="short-break-btn" class="button choice-btn">Short break</button>
+            <button id="long-break-btn" class="button choice-btn">Long break</button>
+        </div>
+        <div class="footer">
+            <div id="message">❤️ Thank you for using this timer.</div>
+            <div>Studied for... <span id="total-time">0hr 0min</span></div>
+        </div>
     </div>
-    <div id="display" class="button">Study for how long?</div>
-    <input id="time" type="number" placeholder="00:00">
-    <div id="left-btn" class="button choice-btn ok">OK</div>
-    <div id="right-btn" class="button choice-btn clear">CLEAR</div>
-    <script src="index.js"></script>
+
+    <br>
+
+    <footer>Coded by <a href="https://github.com/GoldenKimchee" target="_blank">@Rachel Kim</a> </footer>
+
+    <script src="background.js"></script>
 </body>
 </html>
