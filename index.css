@@ -1,20 +1,21 @@
+:root {
+    font-size: 16px;
+}
+
 body {
     margin: 0;
     padding: 0;
     min-width: 300px;
-    min-height: 350px;
-    background-color: 255, 180, 0;
+    min-height: 370px;
     background-color: #FFB400;
     font-family: 'Patrick Hand', cursive;
     letter-spacing: 2px;
-    font-size: 16px;
     text-align: center;
     box-sizing: border-box;
 }
 
 .container {
     position: relative;
-    width: 25%;
     margin: auto;
 }
 
@@ -51,12 +52,13 @@ img {
     width: 300px;
     height: auto;
 }
+
 h3 {
     position: absolute;
     margin: 0;
     top: 18px;
-    left: 110px;
-    font-size: 23px;
+    left: 50px;
+    font-size: 1.4rem;
     letter-spacing: 6px;
     color: #113537;
 }
@@ -76,7 +78,7 @@ h3 small {
 
 #time {
     letter-spacing: 7px;
-    font-size: 35px;
+    font-size: 2.3rem;
     color: #37505C;
     background-color: white;
     border-radius: 5px;
@@ -90,7 +92,7 @@ h3 small {
 footer {
     background-color: #113537;
     color: white;
-    font-size: 10px;
+    font-size: 0.8rem;
 }
 
 footer a {
